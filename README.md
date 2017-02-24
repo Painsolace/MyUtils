@@ -1,0 +1,3 @@
+# @author painsolace
+
+-自用工具类，用于Java项目...
