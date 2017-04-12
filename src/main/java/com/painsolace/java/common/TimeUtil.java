@@ -7,6 +7,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Locale;
 import java.util.StringTokenizer;
+import java.util.TimeZone;
 
 /**
  * 功能：日期处理相关的操作  适用于jdk1.7以下  jdk1.8 推荐使用新特性
@@ -322,5 +323,27 @@ public class TimeUtil {
 
         SimpleDateFormat sf = new java.text.SimpleDateFormat("yyyy-MM");
         return sf.format(new Date()) + "-01 00:00:00";
+    }
+
+    public static String UtcToLocal(String time,String patter){
+
+            time = "2017-04-01T13:00:56.966+08:00";
+            patter = "yyyy-MM-dd'T'HH:mm:ss.SSSZ";
+
+            SimpleDateFormat utcFormater = new SimpleDateFormat(patter); //"yyyy-MM-dd'T'HH:mm:ss'Z'"
+            utcFormater.setTimeZone(TimeZone.getTimeZone("UTC")); //"2017-04-01T02:37:08Z"
+            Date gpsUTCDate = null;
+            try {
+                gpsUTCDate = utcFormater.parse(time);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
+            SimpleDateFormat localFormater = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            //localFormater.setTimeZone(TimeZone.getDefault());
+            localFormater.setTimeZone(TimeZone.getDefault());
+            String localTime = localFormater.format(gpsUTCDate.getTime());
+            return localTime;
+
     }
 }

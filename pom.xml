@@ -57,5 +57,11 @@
       <version>1.7.5</version>
     </dependency>
 
+    <dependency>
+      <groupId>org.apache.activemq</groupId>
+      <artifactId>activemq-web</artifactId>
+      <version>5.14.4</version>
+    </dependency>
+
   </dependencies>
 </project>
