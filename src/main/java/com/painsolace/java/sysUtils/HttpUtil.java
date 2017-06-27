@@ -30,7 +30,6 @@ import java.util.Set;
  *
  */
 public class HttpUtil {
-
     /**
      * 向指定URL发送GET方法的请求
      * 
